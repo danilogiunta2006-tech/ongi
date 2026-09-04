@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ONGI — Opportunità. Notizie. Giovani. Italia.</title>
+  <meta name="description" content="ONGI: notizie, opportunità e strumenti utili per giovani italiani.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0d1933;--muted:#5f6b7e;--line:#e8edf3;--green:#10a36f;--green2:#dff7ed;
+      --bg:#fff;--soft:#f5f8fb;--navy:#0b1830;--radius:22px;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--bg)}
+    h1,h2,h3{font-family:Manrope,sans-serif;margin:0;letter-spacing:-.03em} a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:10}
+    .top{height:76px;display:flex;align-items:center;gap:24px}.logo{font:800 42px Manrope;color:var(--ink);letter-spacing:-.08em}
+    .logo i{color:var(--green);font-style:normal}.tagline{font-weight:600;font-size:14px}
+    .search{margin-left:auto;border:1px solid #dfe5ec;border-radius:999px;padding:12px 17px;width:280px;color:#718096}
+    .archive{border:1px solid #dfe5ec;border-radius:999px;padding:12px 18px;font-weight:700}
+    nav{border-top:1px solid #f1f3f6}.navin{display:flex;gap:28px;height:50px;align-items:center;overflow:auto}
+    nav a{font-weight:700;font-size:14px;white-space:nowrap}.active{color:var(--green);border-bottom:3px solid var(--green);height:50px;display:flex;align-items:center}
+    main{padding:24px 0 50px}.hero-grid{display:grid;grid-template-columns:2.25fr .8fr;gap:20px}
+    .hero{border-radius:var(--radius);overflow:hidden;min-height:355px;background:linear-gradient(105deg,#e9fbf4 0%,#eff8f5 54%,#dce9e7 100%);display:grid;grid-template-columns:1.18fr .82fr}
+    .hero-copy{padding:30px}.eyebrow{display:inline-block;background:var(--green);color:#fff;padding:7px 13px;border-radius:99px;font-weight:800;font-size:12px}
+    .hero h1{font-size:38px;line-height:1.08;margin:18px 0 12px}.hero p{font-size:17px;line-height:1.45;margin:0 0 18px;color:#334155}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:18px}.btn{display:inline-flex;background:var(--green);color:#fff;padding:12px 18px;border-radius:999px;font-weight:800}
+    .hero-img{background:linear-gradient(135deg,#b8d8cf,#809c9b);position:relative}.hero-img:after{content:"";position:absolute;inset:12% 18% 0;background:radial-gradient(circle at 50% 25%,#f1c9b3 0 12%,transparent 13%),linear-gradient(90deg,transparent 0 27%,#18293e 28% 72%,transparent 73%);border-radius:45% 45% 0 0;opacity:.72}
+    .score{position:absolute;right:18px;top:18px;background:var(--green);color:white;border-radius:50%;width:78px;height:78px;display:grid;place-items:center;text-align:center;font-weight:800;z-index:2;line-height:1.05}
+    .score small{font-size:10px;display:block}.side{background:var(--green2);border-radius:var(--radius);padding:28px}.side h2{font-size:25px}.side p{line-height:1.5;color:#334155}.checks{margin-top:24px;display:grid;gap:13px}.checks div{display:flex;gap:10px;font-weight:700;font-size:14px}.dot{width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
+    .section{margin-top:28px}.section h2{font-size:25px;margin-bottom:15px}.cats{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}.cat{padding:14px 8px;text-align:center;border:1px solid var(--line);border-radius:18px;font-weight:800;font-size:12px;background:#fff}.icon{font-size:25px;display:block;margin-bottom:7px}
+    .content-grid{display:grid;grid-template-columns:2.25fr .8fr;gap:20px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 5px 18px #10203b08}.thumb{height:125px;background:linear-gradient(135deg,#d9e6ef,#a8bac8);position:relative}.thumb.t2{background:linear-gradient(135deg,#f4d9df,#d3e3ec)}.thumb.t3{background:linear-gradient(135deg,#e2ddfa,#b9d5e6)}.thumb.t4{background:linear-gradient(135deg,#efdcc7,#aab7a9)}
+    .pill{position:absolute;left:12px;top:12px;background:var(--green);color:#fff;border-radius:99px;padding:6px 9px;font-size:10px;font-weight:800}.card-body{padding:14px}.card h3{font-size:18px;line-height:1.18}.card p{color:#566276;font-size:13px;line-height:1.4}.cardfoot{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;margin-top:12px}.mini-score{background:var(--green2);color:#087b52;padding:7px 10px;border-radius:99px}
+    .rail{display:grid;gap:16px}.box{border-radius:20px;padding:22px;background:#edf5ff}.box.dark{background:var(--navy);color:#fff}.box h3{font-size:20px}.box p{font-size:14px;line-height:1.45;color:#667085}.dark p{color:#cbd5e1}.bigscore{font-size:44px;font-weight:800;color:#fff;margin:10px 0}.newsletter input{width:100%;padding:12px;border:1px solid #dbe2ea;border-radius:10px;margin:8px 0}.newsletter button{width:100%;padding:12px;border:0;border-radius:10px;background:var(--navy);color:#fff;font-weight:800}
+    .banner{margin-top:28px;border-radius:22px;background:linear-gradient(90deg,#0b1830,#29445e);color:#fff;padding:27px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px}.banner p{color:#d8e0e8;margin:8px 0 0}.banner .btn{background:#fff;color:var(--navy)}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#667085;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:900px){.hero-grid,.content-grid{grid-template-columns:1fr}.cats{grid-template-columns:repeat(4,1fr)}.side{display:none}.hero{grid-template-columns:1fr}.hero-img{display:none}}
+    @media(max-width:600px){.container{width:min(100% - 24px,1180px)}.top{height:68px}.tagline,.archive{display:none}.search{width:auto;flex:1}.hero h1{font-size:29px}.cards{grid-template-columns:1fr}.cats{grid-template-columns:repeat(4,1fr)}.banner{flex-direction:column;align-items:flex-start}.foot{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container top">
+    <a class="logo" href="#">ONG<span>I</span><i>•</i></a><span class="tagline">Opportunità. Notizie. Giovani. Italia.</span>
+    <div class="search">Cerca notizie, opportunità, argomenti…　⌕</div><a class="archive" href="#">▣ Archivio</a>
+  </div>
+  <nav><div class="container navin">
+    <a class="active" href="#">⌂ Home</a><a href="#">💼 Lavoro</a><a href="#">🪙 Guadagno</a><a href="#">🎓 Formazione</a><a href="#">🐷 Vita & Risparmio</a><a href="#">🍃 Futuro</a><a href="#">📰 News</a><a href="#">🌐 Estero</a><a href="#">⚙ AI & Tech</a>
+  </div></nav>
+</header>
+<main class="container">
+  <section class="hero-grid">
+    <article class="hero">
+      <div class="hero-copy"><span class="eyebrow">IN EVIDENZA</span>
+        <h1>Bonus Giovani 2026: per le aziende assumerti a tempo indeterminato può costare meno</h1>
+        <p>L’INPS ha pubblicato le indicazioni per l’esonero contributivo sulle assunzioni di giovani under 35.</p>
+        <div class="meta">4 settembre 2026　|　Lavoro</div><a class="btn" href="#">Leggi l’articolo →</a>
+      </div><div class="hero-img"><div class="score">8,5<small>/10<br>ONGI SCORE</small></div></div>
+    </article>
+    <aside class="side"><h2>La tua bussola per il futuro</h2><p>Selezioniamo ogni giorno le migliori notizie, opportunità e strumenti per aiutarti a costruire il tuo domani.</p>
+      <div class="checks"><div><span class="dot">✓</span>Fonti istituzionali e primarie</div><div><span class="dot">✓</span>Dati verificati</div><div><span class="dot">✓</span>Niente fuffa, solo ciò che conta</div></div>
+    </aside>
+  </section>
+
+  <section class="section"><h2>Esplora per categoria</h2><div class="cats">
+    <a class="cat" href="#"><span class="icon">💼</span>Lavoro</a><a class="cat" href="#"><span class="icon">🪙</span>Guadagno</a><a class="cat" href="#"><span class="icon">🎓</span>Formazione</a><a class="cat" href="#"><span class="icon">🐷</span>Vita & Risparmio</a><a class="cat" href="#"><span class="icon">🍃</span>Futuro</a><a class="cat" href="#"><span class="icon">📰</span>News</a><a class="cat" href="#"><span class="icon">🌐</span>Estero</a><a class="cat" href="#"><span class="icon">⚙</span>AI & Tech</a>
+  </div></section>
+
+  <section class="section content-grid">
+    <div><h2>Le migliori notizie di oggi</h2><div class="cards">
+      <article class="card"><div class="thumb"><span class="pill">LAVORO</span></div><div class="card-body"><h3>Hai un contratto a termine? Potrebbe esserci un incentivo per trasformarlo in indeterminato</h3><p>L’INPS ha pubblicato le indicazioni per l’esonero contributivo destinato alle aziende che trasformano alcuni contratti.</p><div class="cardfoot"><span>ONGI SCORE <b class="mini-score">9/10</b></span><a href="#">Leggi →</a></div></div></article>
+      <article class="card"><div class="thumb t2"><span class="pill">DONNE</span></div><div class="card-body"><h3>Bonus Donne 2026: fino a 800 € al mese di esonero contributivo per l’azienda</h3><p>L’incentivo può durare fino a 24 mesi per alcune assunzioni a tempo indeterminato di lavoratrici svantaggiate.</p><div class="cardfoot"><span>ONGI SCORE <b class="mini-score">8/10</b></span><a href="#">Leggi →</a></div></div></article>
+      <article class="card"><div class="thumb t3"><span class="pill">FORMAZIONE</span></div><div class="card-body"><h3>Competenze digitali avanzate: call europea con scadenza 1° ottobre</h3><p>Una call su AI, competenze digitali avanzate e tecnologie emergenti. Non è una candidatura individuale.</p><div class="cardfoot"><span>ONGI SCORE <b class="mini-score">6,5/10</b></span><a href="#">Leggi →</a></div></div></article>
+      <article class="card"><div class="thumb t4"><span class="pill">VITA & RISPARMIO</span></div><div class="card-body"><h3>Risparmiare meglio: come leggere davvero un conto deposito</h3><p>Una guida ONGI per capire tasso, durata, vincoli e cosa controllare prima di scegliere.</p><div class="cardfoot"><span>ONGI SCORE <b class="mini-score">7/10</b></span><a href="#">Leggi →</a></div></div></article>
+    </div></div>
+    <aside class="rail">
+      <div class="box dark"><h3>ONGI SCORE</h3><p>Come funziona?</p><div class="bigscore">8,5<span style="font-size:16px"> /10</span></div><p>Valutiamo utilità, affidabilità, impatto per i giovani e chiarezza delle informazioni.</p></div>
+      <div class="box newsletter"><h3>✉ Iscriviti alla newsletter</h3><p>Ricevi ogni mattina le migliori notizie e opportunità.</p><input placeholder="La tua email"><button>Iscriviti →</button></div>
+      <div class="box"><h3>▣ Le categorie</h3><p>Naviga per trovare ciò che ti interessa di più.</p><a href="#"><b>Vai a tutte le categorie →</b></a></div>
+    </aside>
+  </section>
+  <section class="banner"><div><h2>Informazioni giuste. Più opportunità per il tuo futuro.</h2><p>ONGI è il tuo punto di riferimento per notizie, opportunità e strumenti pensati per i giovani italiani.</p></div><a class="btn" href="#">Scopri di più →</a></section>
+</main>
+<footer><div class="container foot"><div><b style="font-size:25px;color:var(--ink)">ONG<span style="color:var(--green)">I</span></b>　 Opportunità. Notizie. Giovani. Italia.</div><div>Chi siamo　|　Fonti　|　Privacy　|　Contatti</div><div>© 2026 ONGI. Tutti i diritti riservati.</div></div></footer>
+</body>
+</html>
